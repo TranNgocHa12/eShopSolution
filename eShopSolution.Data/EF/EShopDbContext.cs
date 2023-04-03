@@ -18,6 +18,27 @@ namespace eShopSolution.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Cart>()
+.Property(p => p.Price)
+.HasColumnType("decimal(18,4)");
+            modelBuilder.Entity<OrderDetail>()
+.Property(p => p.Price)
+.HasColumnType("decimal(18,4)");
+            modelBuilder.Entity<Product>()
+.Property(p => p.OriginalPrice)
+.HasColumnType("decimal(18,4)");
+            modelBuilder.Entity<Product>()
+.Property(p => p.Price)
+.HasColumnType("decimal(18,4)");
+            modelBuilder.Entity<Promotion>()
+.Property(p => p.DiscountAmount)
+.HasColumnType("decimal(18,4)");
+            modelBuilder.Entity<Transaction>()
+.Property(p => p.Amount)
+.HasColumnType("decimal(18,4)");
+            modelBuilder.Entity<Transaction>()
+.Property(p => p.Fee)
+.HasColumnType("decimal(18,4)");
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
