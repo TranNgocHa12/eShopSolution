@@ -1,6 +1,6 @@
-﻿using eShopSolution.Domain.Catalog.Dtos;
-using eShopSolution.Domain.Catalog.Products.Dtos;
-using eShopSolution.Domain.Catalog.Products.Dtos.Public;
+﻿using eShopSolution.ViewModel.Catalog.Products;
+using eShopSolution.ViewModel.Catalog.Products.Public;
+using eShopSolution.ViewModel.Catalog.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +11,6 @@ namespace eShopSolution.Domain.Catalog.Products
 {
     public interface IPublicProductService
     {
-        public PagedResult<ProductViewModel> GetAllByCategoryId(GetProductPagingRequest productPagingRequest);
+        public Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request);
     }
 }

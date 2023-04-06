@@ -1,11 +1,10 @@
-﻿using eShopSolution.Data.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShopSolution.Domain.Catalog.Products.Dtos.Manage
+namespace eShopSolution.ViewModel.Catalog.Products.Manage
 {
     public class ProductUpdateRequest
     {

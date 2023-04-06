@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShopSolution.Domain.Catalog.Dtos
+namespace eShopSolution.ViewModel.Catalog.Common
 {
     public class GetRequestPaging : PagingRequestBase
     {

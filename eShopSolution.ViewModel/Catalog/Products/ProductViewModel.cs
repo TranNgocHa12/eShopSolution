@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShopSolution.Domain.Catalog.Products.Dtos
+namespace eShopSolution.ViewModel.Catalog.Products
 {
     public class ProductViewModel
     {
