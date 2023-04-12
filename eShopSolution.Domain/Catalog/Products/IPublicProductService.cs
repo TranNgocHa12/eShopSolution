@@ -1,5 +1,4 @@
 ﻿using eShopSolution.ViewModel.Catalog.Products;
-using eShopSolution.ViewModel.Catalog.Products.Public;
 using eShopSolution.ViewModel.Catalog.Common;
 using System;
 using System.Collections.Generic;
@@ -11,6 +10,8 @@ namespace eShopSolution.Domain.Catalog.Products
 {
     public interface IPublicProductService
     {
-        public Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request);
+        public Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetPublicProductPagingRequest request);
+
+        public Task<List<ProductViewModel>> GetAll();
     }
 }

@@ -3,7 +3,6 @@ using eShopSolution.Application.Catalog.Products;
 using eShopSolution.Data.EF;
 using eShopSolution.Data.Entities;
 using eShopSolution.ViewModel.Catalog.Products;
-using eShopSolution.ViewModel.Catalog.Products.Manage;
 using eShopSolution.ViewModel.Catalog.Common;
 using eShopSolution.Utilities.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +25,7 @@ namespace eShopSolution.Domain.Catalog.Products
         {
             _context = eShopDbContext;
         }
-        public Task<int> Create (ProductCreateRequest request)
+        public async Task<int> Create (ProductCreateRequest request)
         {
             var product = new eShopSolution.Data.Entities.Product()
             {
@@ -66,7 +65,7 @@ namespace eShopSolution.Domain.Catalog.Products
                 };
             }
             _context.Products.Add(product);
-            return _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
         public async Task<int> Update(ProductUpdateRequest request)
         {
@@ -118,7 +117,7 @@ namespace eShopSolution.Domain.Catalog.Products
             throw new NotImplementedException();
         }
 
-        public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
+        public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products
