@@ -1,7 +1,9 @@
-﻿using eShopSolution.Data.EF;
+﻿using eShopSolution.Application.Catalog.Products;
+using eShopSolution.Data.EF;
 using eShopSolution.Data.Entities;
 using eShopSolution.Domain.Catalog.Product;
 using eShopSolution.Domain.Catalog.Products;
+using eShopSolution.Domain.Common;
 using eShopSolution.Utilities.Constants;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +27,9 @@ namespace eShopSolution.BackendApi
             services.AddDbContext<EShopDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
             //Declare DI
+            services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IManageProductService, ManageProductService>();
             services.AddControllersWithViews();
             services.AddSwaggerGen(c =>
             {

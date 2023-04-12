@@ -17,5 +17,6 @@ namespace eShopSolution.Application.Catalog.Products
         Task AddViewCount(int productId);
         Task UpdateViewCount(int productId);
         Task<PagedResult<ProductViewModel>>GetAllPaging(GetManageProductPagingRequest request);
+        Task<ProductViewModel> GetById(int productId, string languageId);
     }
 }
