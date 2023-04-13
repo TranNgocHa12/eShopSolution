@@ -9,17 +9,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using eShopSolution.Data.Entities;
+using eShopSolution.ViewModels.Catalog.ProductImages;
+using eShopSolution.Utilities.Exceptions;
+using eShopSolution.Domain.Common;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
 
 namespace eShopSolution.Domain.Catalog.Product
 {
     public class PublicProductService : IPublicProductService
     {
         private readonly EShopDbContext _context;
-        public PublicProductService(EShopDbContext eShopDbContext)
+        private readonly IStorageService _storageService;
+        private const string USER_CONTENT_FOLDER_NAME = "user-content";
+        public PublicProductService(EShopDbContext eShopDbContext, IStorageService storageService)
         {
             _context = eShopDbContext;
+            _storageService = storageService;
         }
-        public async Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetPublicProductPagingRequest request)
+        public async Task<PagedResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products

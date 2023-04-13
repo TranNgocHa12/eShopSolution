@@ -3,6 +3,7 @@ using eShopSolution.ViewModel.Catalog.Products;
 using eShopSolution.ViewModel.Catalog.Common;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using eShopSolution.ViewModels.Catalog.ProductImages;
 
 namespace eShopSolution.Application.Catalog.Products
 {
@@ -18,5 +19,11 @@ namespace eShopSolution.Application.Catalog.Products
         Task UpdateViewCount(int productId);
         Task<PagedResult<ProductViewModel>>GetAllPaging(GetManageProductPagingRequest request);
         Task<ProductViewModel> GetById(int productId, string languageId);
+        Task<int> AddImage(int productId, ProductImageCreateRequest request);
+
+        Task<int> RemoveImage(int imageId);
+        Task<ProductImageViewModel> GetImageById(int imageId);
+        Task<int> UpdateImage(int imageId, ProductImageUpdateRequest request);
+        Task<List<ProductImageViewModel>> GetListImages(int productId);
     }
 }
