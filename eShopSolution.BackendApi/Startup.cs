@@ -43,6 +43,7 @@ namespace eShopSolution.BackendApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger eShop Solution", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); 
             });
         }
 
